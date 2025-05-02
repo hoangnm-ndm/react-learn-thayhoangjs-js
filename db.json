@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone 14 Pro Max",
+      "price": 2000,
+      "category": "Category 1",
+      "image": "https://picsum.photos/id/237/200/300"
+    },
+    {
+      "id": 2,
+      "name": "Keyboard Aula F99 Pro",
+      "price": 200,
+      "category": "Category 2",
+      "image": "https://picsum.photos/id/238/200/300"
+    },
+    {
+      "id": 3,
+      "name": "Macbook Pro 16 inch",
+      "price": 3000,
+      "category": "Category 3",
+      "image": "https://picsum.photos/id/239/200/300"
+    },
+    {
+      "name": "them moi san pham",
+      "price": "2000000",
+      "category": "danh muc 222",
+      "id": 4
+    }
+  ]
+}
