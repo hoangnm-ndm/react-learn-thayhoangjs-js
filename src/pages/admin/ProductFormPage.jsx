@@ -1,111 +1,100 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
+
+const productSchema = z.object({
+	name: z.string().min(1, "Tên sản phẩm không được để trống"),
+	price: z.coerce.number().positive("Giá phải là số dương"),
+	category: z.string().min(1, "Danh mục không được để trống"),
+});
+
+const initFormValues = {
+	name: "",
+	price: "",
+	category: "",
+};
 
 function ProductFromPage() {
 	const { id } = useParams();
 	const nav = useNavigate();
-	const [formData, setFormData] = useState({
-		name: "",
-		price: "",
-		category: "",
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm({
+		resolver: zodResolver(productSchema),
+		defaultValues: initFormValues,
 	});
 
 	useEffect(() => {
-		fetch("http://localhost:3000/products/" + id)
-			.then((response) => response.json())
-			.then((data) => {
-				setFormData(data);
-			})
-			.catch((error) => console.error("Error fetching products:", error));
-	}, [id]);
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: value,
-		}));
-	};
-
-	const clearSelection = () => {
-		setFormData({
-			name: "",
-			price: "",
-			category: "",
-		});
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
 		if (id) {
-			fetch(`http://localhost:3000/products/${id}`, {
-				method: "PATCH",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					console.log("Product updated:", data);
-				})
-				.catch((error) => console.error("Error updating product:", error));
-		} else {
-			fetch("http://localhost:3000/products", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					console.log("Product added:", data);
-				})
-				.catch((error) => console.error("Error adding product:", error));
+			fetch(`http://localhost:3000/products/${id}`)
+				.then((res) => res.json())
+				.then((data) => reset(data))
+				.catch((err) => console.error("Error fetching:", err));
 		}
-		nav("/admin/products");
+	}, [id, reset]);
+
+	const onSubmit = (data) => {
+		const url = id ? `http://localhost:3000/products/${id}` : `http://localhost:3000/products`;
+		const method = id ? "PATCH" : "POST";
+
+		fetch(url, {
+			method,
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then(() => {
+				nav("/admin/products");
+			})
+			.catch((err) => console.error("Error submitting:", err));
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="mb-4">
+		<form onSubmit={handleSubmit(onSubmit)} className="mb-4">
 			<h4>{id ? "Edit Product" : "Add Product"}</h4>
+
 			<div className="mb-3">
 				<input
 					type="text"
-					className="form-control"
-					name="name"
+					className={`form-control ${errors.name ? "is-invalid" : ""}`}
 					placeholder="Product Name"
-					value={formData.name}
-					onChange={handleChange}
+					{...register("name")}
 				/>
+				{errors.name && <div className="invalid-feedback">{errors.name.message}</div>}
 			</div>
+
 			<div className="mb-3">
 				<input
 					type="number"
-					className="form-control"
-					name="price"
+					step="0.01"
+					className={`form-control ${errors.price ? "is-invalid" : ""}`}
 					placeholder="Price"
-					value={formData.price}
-					onChange={handleChange}
+					{...register("price")}
 				/>
+				{errors.price && <div className="invalid-feedback">{errors.price.message}</div>}
 			</div>
 
 			<div className="mb-3">
 				<input
 					type="text"
-					className="form-control"
-					name="category"
+					className={`form-control ${errors.category ? "is-invalid" : ""}`}
 					placeholder="Category"
-					value={formData.category}
-					onChange={handleChange}
+					{...register("category")}
 				/>
+				{errors.category && <div className="invalid-feedback">{errors.category.message}</div>}
 			</div>
+
 			<button className="btn btn-primary me-2" type="submit">
 				{id ? "Update" : "Add"}
 			</button>
 			{id && (
-				<button className="btn btn-secondary" onClick={clearSelection} type="button">
+				<button className="btn btn-secondary" type="button" onClick={() => reset(initFormValues)}>
 					Cancel
 				</button>
 			)}

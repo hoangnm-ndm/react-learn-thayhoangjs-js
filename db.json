@@ -22,9 +22,9 @@
       "image": "https://picsum.photos/id/239/200/300"
     },
     {
-      "name": "them moi san pham",
-      "price": "2000000",
-      "category": "danh muc 222",
+      "name": "name san pham",
+      "price": 2000,
+      "category": "mo ta",
       "id": 4
     }
   ]
