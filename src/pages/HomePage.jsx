@@ -12,7 +12,7 @@ const HomePage = () => {
 			.catch((err) => {
 				console.log(err);
 			});
-	});
+	}, []);
 
 	return <>{JSON.stringify(products)}</>;
 };

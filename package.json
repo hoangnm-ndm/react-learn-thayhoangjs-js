@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "concurrently \"vite\" \"json-server --watch db.json --port 3000\"",
+		"dev": "concurrently \"vite\" \"json-server-auth --watch db.json --port 3000\"",
 		"build": "vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview"
@@ -13,6 +13,7 @@
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.0",
 		"@hookform/resolvers": "^5.0.1",
+		"axios": "^1.9.0",
 		"concurrently": "^9.1.2",
 		"json-server": "^0.17.0",
 		"json-server-auth": "^2.1.0",
@@ -21,6 +22,7 @@
 		"react-hook-form": "^7.56.1",
 		"react-icons": "^5.5.0",
 		"react-router-dom": "^7.5.3",
+		"react-toastify": "^11.0.5",
 		"zod": "^3.24.3"
 	},
 	"devDependencies": {

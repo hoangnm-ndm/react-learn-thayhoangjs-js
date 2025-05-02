@@ -22,10 +22,67 @@
       "image": "https://picsum.photos/id/239/200/300"
     },
     {
-      "name": "name san pham",
-      "price": 2000,
+      "name": "sssss",
+      "price": 20003333,
       "category": "mo ta",
       "id": 4
+    },
+    {
+      "name": "them san pham moi",
+      "price": 200,
+      "category": "danh muc moi",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "hoangnm.ndm@gmail.com",
+      "password": "$2a$10$YAMCFcMY/df0t5s1iCPIVuIKCX63jNeEa5LN/iD8UrUoJxCSUr6UK",
+      "username": "hoangnm",
+      "confirmPass": "111111",
+      "id": 1
+    },
+    {
+      "email": "hoangnm.ndmm@gmail.com",
+      "password": "$2a$10$ZB.eQnCksqoGj0jGnREJGuy2z9yPmtukdFQqf.uZfe9rzO9x/ZdGm",
+      "username": "111111",
+      "id": 2
+    },
+    {
+      "email": "nguyenminhhoang.samsung@gmail.com",
+      "password": "$2a$10$cksDYSu/CnlrsLcH/B50auVs1QDhOQoIRQlWjH0xSWJba1Q5m2tAe",
+      "username": "111111",
+      "id": 3
+    },
+    {
+      "email": "thayhoangjs@imail.edu.vn",
+      "password": "$2a$10$ujKvo0SKMxnzlaMGhTV95OVvgTI.VvO5vtFuAfM.Tun.cGAxcbyUu",
+      "username": "111111",
+      "id": 4
+    },
+    {
+      "email": "hoang@gmail.com",
+      "password": "$2a$10$uH/VtDBwmyNtCfEZq.6FoOtXWfbKsAesFGpzqfjgg7zWpTOi7R3Nm",
+      "username": "111111",
+      "id": 5
+    },
+    {
+      "email": "hoang1@gmail.com",
+      "password": "$2a$10$n/W9PlfllY3ASs3RF5kPDODuNfx14nOui8J6RgsyDX7LO5JTs/sKm",
+      "username": "111111",
+      "id": 6
+    },
+    {
+      "email": "ho@gmail.com",
+      "password": "$2a$10$wscbcNEg0B71AXSYHArfh.1SDonAZvFhRdIjgbRtuBxw/3Envk2w6",
+      "username": "111111",
+      "id": 7
+    },
+    {
+      "email": "ho0@gmail.com",
+      "password": "$2a$10$F5AGrssAC/Vqlb8ahKudcekhlds6Dcj3MVaFZ6dZTi4GoKWOJ2Dtu",
+      "username": "111111",
+      "id": 8
     }
   ]
 }

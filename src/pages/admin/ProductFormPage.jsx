@@ -1,14 +1,9 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
-
-const productSchema = z.object({
-	name: z.string().min(1, "Tên sản phẩm không được để trống"),
-	price: z.coerce.number().positive("Giá phải là số dương"),
-	category: z.string().min(1, "Danh mục không được để trống"),
-});
+import { productSchema } from "../../schemas/productSchema";
+import { createProduct, getProductById, updateProduct } from "../../api/productApi";
 
 const initFormValues = {
 	name: "",
@@ -16,7 +11,7 @@ const initFormValues = {
 	category: "",
 };
 
-function ProductFromPage() {
+function ProductFormPage() {
 	const { id } = useParams();
 	const nav = useNavigate();
 
@@ -32,27 +27,23 @@ function ProductFromPage() {
 
 	useEffect(() => {
 		if (id) {
-			fetch(`http://localhost:3000/products/${id}`)
-				.then((res) => res.json())
-				.then((data) => reset(data))
-				.catch((err) => console.error("Error fetching:", err));
+			getProductById(id)
+				.then((res) => reset(res.data))
+				.catch((err) => console.error("Error fetching product:", err));
 		}
 	}, [id, reset]);
 
-	const onSubmit = (data) => {
-		const url = id ? `http://localhost:3000/products/${id}` : `http://localhost:3000/products`;
-		const method = id ? "PATCH" : "POST";
-
-		fetch(url, {
-			method,
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(data),
-		})
-			.then((res) => res.json())
-			.then(() => {
-				nav("/admin/products");
-			})
-			.catch((err) => console.error("Error submitting:", err));
+	const onSubmit = async (data) => {
+		try {
+			if (id) {
+				await updateProduct(id, data);
+			} else {
+				await createProduct(data);
+			}
+			nav("/admin/products");
+		} catch (err) {
+			console.error("Error submitting:", err);
+		}
 	};
 
 	return (
@@ -102,4 +93,4 @@ function ProductFromPage() {
 	);
 }
 
-export default ProductFromPage;
+export default ProductFormPage;
