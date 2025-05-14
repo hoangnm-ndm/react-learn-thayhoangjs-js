@@ -10,6 +10,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import DashboardPage from "../pages/admin/DashboardPage";
 import ProductTablePage from "../pages/admin/ProductTablePage";
 import ProductFormPage from "../pages/admin/ProductFormPage";
+import Profile from "../pages/ProfilePage";
 
 const router = createBrowserRouter([
 	{
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
 			{ index: true, element: <HomePage /> },
 			{ path: "about", element: <AboutPage /> },
 			{ path: "products/:id", element: <ProductDetail /> },
+			{ path: "me/profile", element: <Profile /> },
 		],
 	},
 	{

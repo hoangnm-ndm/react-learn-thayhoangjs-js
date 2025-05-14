@@ -1,12 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../api/authApi";
 import { loginSchema } from "../schemas/authSchema";
+import { useUser } from "../hooks/useUser";
 
 const LoginPage = () => {
 	const nav = useNavigate();
+	const { setUser } = useUser();
 	const {
 		handleSubmit,
 		reset,
@@ -20,8 +22,7 @@ const LoginPage = () => {
 		try {
 			const { data } = await authLogin(dataUser);
 			if (data.accessToken && confirm("Go back home?")) {
-				localStorage.setItem("accessToken", data.accessToken);
-				localStorage.setItem("email", data?.user?.email);
+				setUser(data.user);
 				nav("/");
 			}
 		} catch (err) {
