@@ -1,7 +1,10 @@
 import "./App.css";
-
-import AppRouter from "./router/index";
+import Profile from "./pages/ProfilePage";
 
 export default function App() {
-	return "Hello World";
+	return (
+		<div className="App">
+			<Profile />
+		</div>
+	);
 }
