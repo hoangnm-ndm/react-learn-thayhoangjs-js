@@ -11,6 +11,8 @@ const useFetchList = (path, query) => {
 	useEffect(() => {
 		const fetchProduct = async () => {
 			try {
+				const skip = (query.page - 1) * query.limit;
+				query.skip = skip;
 				const queryString = new URLSearchParams(query).toString();
 				console.log(`${path}/search?${queryString}`);
 				const res = await api.get(`${path}/search?${queryString}`);
