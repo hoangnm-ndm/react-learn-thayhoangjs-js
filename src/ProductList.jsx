@@ -2,6 +2,14 @@ import React from "react";
 import useFetchList from "./hooks/useFetchList";
 import useQuery from "./hooks/useQuery";
 
+const sortOptions = [
+	{ label: "Sắp xếp", value: {} },
+	{ label: "Giá tăng dần", value: { sortBy: "price", order: "asc" } },
+	{ label: "Giá giảm dần", value: { sortBy: "price", order: "desc" } },
+	{ label: "Lượt đánh giá cao nhất", value: { sortBy: "rating", order: "desc" } },
+	{ label: "Tên từ a-z", value: { sortBy: "title", order: "asc" } },
+	{ label: "Tên từ a-z", value: { sortBy: "title", order: "desc" } },
+];
 const ProductList = () => {
 	const [query, updateQuery, resetQuery] = useQuery({
 		q: "",
@@ -11,7 +19,12 @@ const ProductList = () => {
 		order: "asc",
 	});
 	const [data] = useFetchList("products", query);
-	console.log(data);
+
+	const handleSearch = (e) => {
+		const value = e.target.value;
+		updateQuery({ q: value, page: 1 });
+	};
+
 	const handleSort = (e) => {
 		const valueSelect = JSON.parse(e.target.value);
 		updateQuery(valueSelect);
@@ -23,21 +36,24 @@ const ProductList = () => {
 	};
 
 	const handleLimit = (e) => {
-		console.log(e.target.value);
-		updateQuery({ limit: e.target.value });
+		updateQuery({ limit: Number(e.target.value), page: 1 });
 	};
 	return (
 		<div>
 			<h2>Danh sach san pham</h2>
-			<select name="sortBy" id="sortBy" onChange={handleSort}>
-				<option value={`{ "sortBy": "", "order": "" }`}>Sắp xếp</option>
-				<option value={`{ "sortBy": "price", "order": "asc" }`}>Giá tăng dần</option>
-				<option value={`{ "sortBy": "price", "order": "desc" }`}>Giá giảm dần</option>
-				<option value={`{ "sortBy": "rating", "order": "desc" }`}>Lượt đánh giá cao nhất</option>
+
+			<input type="text" placeholder="Tìm sản phẩm..." onChange={handleSearch} />
+
+			<select onChange={handleSort}>
+				{sortOptions.map((opt, i) => (
+					<option key={i} value={i}>
+						{opt.label}
+					</option>
+				))}
 			</select>
 			<p>
 				Hiển thị tối đa{" "}
-				<select name="limit" id="limit" onChange={handleLimit}>
+				<select name="limit" onChange={handleLimit} value={query.limit}>
 					<option value={10}>10</option>
 					<option value={20}>20</option>
 				</select>{" "}
@@ -51,11 +67,12 @@ const ProductList = () => {
 							<h2>{item.title}</h2>
 							<p>Giá: {item.price}</p>
 							<p>Đánh giá: {item.rating}</p>
+							<p>{item.description}</p>
 						</div>
 					))}
 			</div>
 			<button onClick={() => handlePage(query.page - 1)} disabled={query.page === 1}>
-				Preview
+				Previous
 			</button>
 			<span>Page: {query.page}</span>
 			<button onClick={() => handlePage(query.page + 1)}>Next</button>
