@@ -1,7 +1,10 @@
 import "./App.css";
-
-import AppRouter from "./router/index";
+import ProductList from "./ProductList";
 
 export default function App() {
-	return "Hello World";
+	return (
+		<>
+			<ProductList />
+		</>
+	);
 }

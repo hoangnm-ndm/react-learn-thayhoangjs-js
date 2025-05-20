@@ -1,61 +1,41 @@
 import React from "react";
-import useFetchListWithParams from "./hooks/useFetchListWithParams";
-import useQueryParams from "./hooks/useQueryParams";
-
-// * Tách các logic filter ra. Component chỉ làm công việc của UI.
-/**
- * * Phân trang
- * * Tìm trang
- * * Sắp xếp theo giá
- * * Lọc theo rate
- */
+import useFetchList from "./hooks/useFetchList";
+import useQuery from "./hooks/useQuery";
 
 const ProductList = () => {
-	const [params, updateParams, resetParams] = useQueryParams({
-		search: "",
-		skip: 0,
+	const [query, updateQuery, resetQuery] = useQuery({
+		q: "",
 		limit: 12,
-		sortBy: "price",
+		skip: 0,
+		sortBy: "createdAt",
 		order: "asc",
 	});
-	const [products, loading, error] = useFetchListWithParams("products", params);
-
-	const handlePage = (newPage) => {
-		updateParams({ ...params, skip: (newPage - 1) * params.limit });
+	const [data] = useFetchList("products", query);
+	console.log(data);
+	const handleSort = (e) => {
+		const valueSelect = JSON.parse(e.target.value);
+		console.log(valueSelect);
+		updateQuery(valueSelect);
 	};
-
-	const handleLimit = (newLimit) => {
-		updateParams({ ...params, limit: newLimit });
-	};
-
-	const handleSort = (sortBy, order) => {
-		updateParams({ ...params, sortBy, order });
-	};
-
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>{error}</div>;
-
 	return (
 		<div>
-			<h1>Danh sach san pham</h1>
-			<span>Hiển thị</span>
-			<select name="limit" id="limit" onChange={handleLimit}>
-				<option value="12">12</option>
-				<option value="20">20</option>
-				<option value="50">50</option>
-				<option value="194">all</option>
+			<h2>Danh sach san pham</h2>
+			<select name="sortBy" id="sortBy" onChange={handleSort}>
+				<option value={`{ "sortBy": "", "order": "" }`}>Sắp xếp</option>
+				<option value={`{ "sortBy": "price", "order": "asc" }`}>Giá tăng dần</option>
+				<option value={`{ "sortBy": "price", "order": "desc" }`}>Giá giảm dần</option>
+				<option value={`{ "sortBy": "rating", "order": "desc" }`}>Lượt đánh giá cao nhất</option>
 			</select>
-			<span> sản phẩm</span>
 			<div>
-				{products.map((item) => (
-					<div key={item.id}>
-						{item.id} - {item.title} - {item.price}
-					</div>
-				))}
+				{data &&
+					data.map((item) => (
+						<div>
+							<h2>{item.title}</h2>
+							<p>Giá: {item.price}</p>
+							<p>Đánh giá: {item.rating}</p>
+						</div>
+					))}
 			</div>
-			<button onClick={() => handlePage(params.page - 1)}>preview</button>
-			<span>{params.skip / params.limit + 1}</span>
-			<button onClick={() => handlePage(params.page + 1)}>next</button>
 		</div>
 	);
 };
