@@ -4,7 +4,7 @@ import { set, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../api/authApi";
 import { loginSchema } from "../schemas/authSchema";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../ls/useUser";
 
 const LoginPage = () => {
 	const nav = useNavigate();
