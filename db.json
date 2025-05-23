@@ -83,6 +83,24 @@
       "password": "$2a$10$F5AGrssAC/Vqlb8ahKudcekhlds6Dcj3MVaFZ6dZTi4GoKWOJ2Dtu",
       "username": "111111",
       "id": 8
+    },
+    {
+      "email": "hoanghoang@gmail.com",
+      "password": "$2a$10$jcqSsTgUJlGRqgZHSzlE6uI3HMFkvcvyVsJnI6fjSQp0ZxFLA5.RC",
+      "username": "hoangnm",
+      "id": 9
+    },
+    {
+      "email": "hoang1234@gmail.com",
+      "password": "$2a$10$hOV9BEFKeyAU0xazx9GDlus3aMta3aFlCQolhB4EjPTtVAMUUEAn2",
+      "username": "hoangnm.ndm",
+      "id": 10
+    },
+    {
+      "email": "hoang12345@gmail.com",
+      "password": "$2a$10$Z9BVrsnDuGhk2Z3OG8LPuuusbxirFT4CWAHKkUNMa1GUlFqlaEWqO",
+      "username": "hoangnm.ndm",
+      "id": 11
     }
   ]
 }

@@ -17,34 +17,17 @@ const RegisterPage = () => {
 		resolver: zodResolver(registerSchema),
 	});
 
-	// Cập nhật lại handleRegister với toast message
 	const handleRegister = async (dataBody) => {
 		try {
 			const { confirmPass, ...otherData } = dataBody;
-			const { data } = await authRegister(otherData);
-
-			if (data.user) {
-				toast.success("Đăng ký thành công!");
-
-				timeoutRef.current = setTimeout(() => {
-					if (confirm("Đăng nhập ngay?")) {
-						nav("/login");
-					}
-				}, 3000);
-			}
+			await authRegister(otherData);
+			nav("/login");
 		} catch (error) {
+			console.log(error);
 			toast.error("Đăng ký thất bại");
 			reset();
 		}
 	};
-
-	useEffect(() => {
-		return () => {
-			if (timeoutRef.current) {
-				clearTimeout(timeoutRef.current); // ✅ cleanup khi unmount
-			}
-		};
-	}, []);
 
 	return (
 		<>

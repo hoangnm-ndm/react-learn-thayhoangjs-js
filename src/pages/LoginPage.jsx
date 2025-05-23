@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../api/authApi";
 import { loginSchema } from "../schemas/authSchema";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
 	const nav = useNavigate();
@@ -19,14 +20,14 @@ const LoginPage = () => {
 	const handleLogin = async (dataUser) => {
 		try {
 			const { data } = await authLogin(dataUser);
-			if (data.accessToken && confirm("Go back home?")) {
+			if (data.accessToken) {
 				localStorage.setItem("accessToken", data.accessToken);
 				localStorage.setItem("email", data?.user?.email);
 				nav("/");
 			}
 		} catch (err) {
-			// Handle error
-			console.error("Login failed:", err);
+			console.log(err);
+			toast.error("Đăng nhập thất bại, vui lòng thử lại!");
 			reset();
 		}
 	};
