@@ -14,7 +14,20 @@ const HomePage = () => {
 			});
 	}, []);
 
-	return <>{JSON.stringify(products)}</>;
+	return (
+		<>
+			<h1>San pham ban chay</h1>
+			<div>
+				{products.map((item) => (
+					<div key={item.id}>
+						<h2>
+							{item.title} - {item.price}
+						</h2>
+					</div>
+				))}
+			</div>
+		</>
+	);
 };
 
 export default HomePage;
