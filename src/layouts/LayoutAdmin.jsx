@@ -25,7 +25,7 @@ const Content = styled.main`
 	background-color: #f9f9f9;
 `;
 
-const AdminLayout = () => {
+const LayoutAdmin = () => {
 	const [collapsed, setCollapsed] = useState(false);
 
 	const handleToggleSidebar = () => {
@@ -48,4 +48,4 @@ const AdminLayout = () => {
 	);
 };
 
-export default AdminLayout;
+export default LayoutAdmin;

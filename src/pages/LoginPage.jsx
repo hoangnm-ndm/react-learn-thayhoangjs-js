@@ -1,10 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../api/authApi";
 import { loginSchema } from "../schemas/authSchema";
-import { useUser } from "../ls/useUser";
 
 const LoginPage = () => {
 	const nav = useNavigate();
