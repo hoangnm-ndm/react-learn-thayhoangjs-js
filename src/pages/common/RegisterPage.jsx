@@ -1,13 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { registerSchema } from "../schemas/authSchema";
-import { authRegister } from "../api/authApi";
-import { toast } from "react-toastify"; // Thêm import toast từ react-toastify
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { registerSchema } from "../../schemas/authSchema";
+import { authRegister } from "../../api/authApi";
 
 const RegisterPage = () => {
-	const nav = useNavigate();
 	const {
 		handleSubmit,
 		reset,
@@ -17,34 +16,18 @@ const RegisterPage = () => {
 		resolver: zodResolver(registerSchema),
 	});
 
-	// Cập nhật lại handleRegister với toast message
 	const handleRegister = async (dataBody) => {
 		try {
 			const { confirmPass, ...otherData } = dataBody;
 			const { data } = await authRegister(otherData);
-
 			if (data.user) {
 				toast.success("Đăng ký thành công!");
-
-				timeoutRef.current = setTimeout(() => {
-					if (confirm("Đăng nhập ngay?")) {
-						nav("/login");
-					}
-				}, 3000);
 			}
-		} catch (error) {
-			toast.error("Đăng ký thất bại");
+		} catch (err) {
+			toast.error(err.response?.data?.message || "Đăng ký thất bại");
 			reset();
 		}
 	};
-
-	useEffect(() => {
-		return () => {
-			if (timeoutRef.current) {
-				clearTimeout(timeoutRef.current); // ✅ cleanup khi unmount
-			}
-		};
-	}, []);
 
 	return (
 		<>

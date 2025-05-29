@@ -2,12 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { authLogin } from "../api/authApi";
-import { loginSchema } from "../schemas/authSchema";
+import { loginSchema } from "../../schemas/authSchema";
+import { authLogin } from "../../api/authApi";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
 	const nav = useNavigate();
-	const { setUser } = useUser();
 	const {
 		handleSubmit,
 		reset,
@@ -20,13 +20,16 @@ const LoginPage = () => {
 	const handleLogin = async (dataUser) => {
 		try {
 			const { data } = await authLogin(dataUser);
-			if (data.accessToken && confirm("Go back home?")) {
-				setUser(data.user);
+			if (data.accessToken) {
+				// Save token to localStorage
+				localStorage.setItem("accessToken", data.accessToken);
+				localStorage.setItem("user", JSON.stringify(data.user));
 				nav("/");
 			}
 		} catch (err) {
 			// Handle error
-			console.error("Login failed:", err);
+			console.error(err.message || "Login failed");
+			toast.error(err.response?.data?.message || "Login failed");
 			reset();
 		}
 	};
