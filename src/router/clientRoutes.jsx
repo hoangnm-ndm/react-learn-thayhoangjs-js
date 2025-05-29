@@ -28,7 +28,7 @@ const clientRoutes = [
 	// products
 	{ path: "products", element: <ProductListPage /> },
 	{ path: "products/:id", element: <ProductDetailPage /> },
-	{ path: "categories/:slug", element: <CategoryPage /> },
+	{ path: "categories", element: <CategoryPage /> },
 
 	// cart
 	{ path: "cart", element: <CartPage /> },

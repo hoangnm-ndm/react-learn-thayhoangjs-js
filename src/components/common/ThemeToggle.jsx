@@ -1,14 +1,15 @@
 import React from "react";
 import { useTheme } from "../../hooks/useTheme";
-import { useTranslation } from "react-i18next";
 
 const ThemeToggle = () => {
 	const { theme, toggleTheme } = useTheme();
-	const { t } = useTranslation();
+	const isDark = theme === "dark";
+
 	return (
-		<button className="btn btn-primary" onClick={toggleTheme}>
-			{t(theme === "light" ? "navbar.darkMode" : "navbar.lightMode")}
-		</button>
+		<div className="form-check form-switch d-flex align-items-center gap-2">
+			<input className="form-check-input" type="checkbox" id="themeSwitch" checked={isDark} onChange={toggleTheme} />
+			<label className="form-check-label text-body" htmlFor="themeSwitch"></label>
+		</div>
 	);
 };
 

@@ -1,14 +1,9 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import React from "react";
 
 const ProfilePage = () => {
-	const { user, setUser } = useContext(UserContext);
-
-	if (!user) return <p>Chưa đăng nhập</p>;
-
 	return (
 		<div>
-			<p>Xin chào, {user.name}</p>
+			<p>Xin chào, </p>
 			<button onClick={() => setUser(null)}>Đăng xuất</button>
 		</div>
 	);
