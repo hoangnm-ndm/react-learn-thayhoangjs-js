@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminLayout from "../layouts/LayoutAdmin";
-import LayoutClient from "../layouts/LayoutClient";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import RegisterPage from "../pages/RegisterPage";
 import adminRoutes from "./adminRoutes";
 import clientRoutes from "./clientRoutes";
+import LayoutAdmin from "../components/layouts/LayoutAdmin";
+import LayoutClient from "../components/layouts/LayoutClient";
 
 const router = createBrowserRouter([
 	// Client routes
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 	// Admin routes
 	{
 		path: "/admin",
-		element: <AdminLayout />,
+		element: <LayoutAdmin />,
 		children: adminRoutes,
 	},
 

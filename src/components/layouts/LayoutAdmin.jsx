@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import AdminFooter from "../components/AdminFooter";
-import AdminHeader from "../components/AdminHeader";
+import AdminHeader from "../common/AdminHeader";
+import Sidebar from "../common/SideBar";
 
 const LayoutWrapper = styled.div`
 	display: flex;

@@ -1,0 +1,117 @@
+{
+	"navbar": {
+		"home": "Home",
+		"products": "Products",
+		"cart": "Cart",
+		"login": "Login",
+		"logout": "Logout",
+		"register": "Register",
+		"profile": "Profile",
+		"orders": "My Orders",
+		"admin": "Admin Panel",
+		"language": "Language",
+		"search": "Search Products",
+		"contact": "Contact Us",
+		"help": "Help & Support",
+		"terms": "Terms of Service",
+		"privacy": "Privacy Policy",
+		"about": "About Us",
+		"faq": "FAQ",
+		"blog": "Blog",
+		"newsletter": "Subscribe to Newsletter",
+		"followUs": "Follow Us",
+		"cartItems": "{{count}} item(s) in cart",
+		"viewCart": "View Cart",
+		"checkout": "Checkout",
+		"orderHistory": "Order History",
+		"accountSettings": "Account Settings",
+		"logoutConfirmation": "Are you sure you want to log out?",
+		"yes": "Yes",
+		"no": "No",
+		"categories": "Categories",
+		"wishlist": "Wishlist",
+		"darkMode": "Dark Mode",
+		"lightMode": "Light Mode"
+	},
+	"auth": {
+		"email": "Email",
+		"password": "Password",
+		"confirmPassword": "Confirm Password",
+		"loginTitle": "Login to your account",
+		"registerTitle": "Create a new account",
+		"forgotPassword": "Forgot password?",
+		"submit": "Submit"
+	},
+	"home": {
+		"welcome": "Welcome to our store",
+		"explore": "Explore products",
+		"bestSeller": "Best Sellers",
+		"newArrivals": "New Arrivals"
+	},
+	"product": {
+		"title": "Product Title",
+		"description": "Description",
+		"price": "Price",
+		"quantity": "Quantity",
+		"addToCart": "Add to Cart",
+		"outOfStock": "Out of Stock",
+		"inStock": "{{count}} in stock",
+		"reviews": "Customer Reviews",
+		"writeReview": "Write a Review"
+	},
+	"cart": {
+		"title": "Shopping Cart",
+		"item": "Item",
+		"items": "Items",
+		"total": "Total",
+		"checkout": "Proceed to Checkout",
+		"empty": "Your cart is empty",
+		"remove": "Remove"
+	},
+	"checkout": {
+		"shippingAddress": "Shipping Address",
+		"paymentMethod": "Payment Method",
+		"placeOrder": "Place Order",
+		"orderSummary": "Order Summary",
+		"items": "Items",
+		"shipping": "Shipping",
+		"tax": "Tax",
+		"total": "Total"
+	},
+	"account": {
+		"myAccount": "My Account",
+		"updateProfile": "Update Profile",
+		"changePassword": "Change Password",
+		"orderHistory": "Order History"
+	},
+	"order": {
+		"orderNumber": "Order #{{id}}",
+		"date": "Date",
+		"status": "Status",
+		"paid": "Paid",
+		"notPaid": "Not Paid",
+		"delivered": "Delivered",
+		"notDelivered": "Not Delivered",
+		"viewDetails": "View Details"
+	},
+	"errors": {
+		"required": "This field is required",
+		"invalidEmail": "Invalid email format",
+		"passwordMismatch": "Passwords do not match",
+		"minLength": "Minimum {{min}} characters required",
+		"maxLength": "Maximum {{max}} characters allowed"
+	},
+	"notifications": {
+		"loginSuccess": "Login successful",
+		"registerSuccess": "Account created successfully",
+		"addToCartSuccess": "Added to cart successfully",
+		"orderSuccess": "Order placed successfully"
+	},
+	"footer": {
+		"aboutUs": "About Us",
+		"contact": "Contact",
+		"privacy": "Privacy Policy",
+		"terms": "Terms of Service",
+		"followUs": "Follow Us"
+	}
+}
