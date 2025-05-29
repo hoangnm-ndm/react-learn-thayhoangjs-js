@@ -5,13 +5,13 @@
 }
 
 body[data-theme="light"] {
-	background: white;
-	color: black;
+	background: #eee;
+	color: #121212;
 }
 
 body[data-theme="dark"] {
 	background: #121212;
-	color: white;
+	color: #e1e1e1;
 }
 
 html {

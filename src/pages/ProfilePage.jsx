@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 
-const Profile = () => {
+const ProfilePage = () => {
 	const { user, setUser } = useContext(UserContext);
 
 	if (!user) return <p>Chưa đăng nhập</p>;
@@ -14,4 +14,4 @@ const Profile = () => {
 	);
 };
 
-export default Profile;
+export default ProfilePage;

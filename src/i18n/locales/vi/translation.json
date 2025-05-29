@@ -1,0 +1,113 @@
+{
+	"navbar": {
+		"home": "Trang chủ",
+		"products": "Sản phẩm",
+		"cart": "Giỏ hàng",
+		"login": "Đăng nhập",
+		"logout": "Đăng xuất",
+		"register": "Đăng ký",
+		"profile": "Tài khoản",
+		"orders": "Đơn hàng của tôi",
+		"admin": "Quản trị",
+		"language": "Ngôn ngữ",
+		"search": "Tìm kiếm sản phẩm",
+		"contact": "Liên hệ",
+		"help": "Trợ giúp & Hỗ trợ",
+		"terms": "Điều khoản dịch vụ",
+		"privacy": "Chính sách bảo mật",
+		"about": "Về chúng tôi",
+		"faq": "Câu hỏi thường gặp",
+		"blog": "Blog",
+		"newsletter": "Đăng ký nhận bản tin",
+		"followUs": "Theo dõi chúng tôi",
+		"cartItems": "{{count}} sản phẩm trong giỏ hàng",
+		"viewCart": "Xem giỏ hàng",
+		"checkout": "Thanh toán",
+		"orderHistory": "Lịch sử đơn hàng",
+		"accountSettings": "Cài đặt tài khoản",
+		"logoutConfirmation": "Bạn có chắc chắn muốn đăng xuất?",
+		"yes": "Có",
+		"no": "Không"
+	},
+	"auth": {
+		"email": "Email",
+		"password": "Mật khẩu",
+		"confirmPassword": "Xác nhận mật khẩu",
+		"loginTitle": "Đăng nhập tài khoản",
+		"registerTitle": "Tạo tài khoản mới",
+		"forgotPassword": "Quên mật khẩu?",
+		"submit": "Gửi"
+	},
+	"home": {
+		"welcome": "Chào mừng bạn đến với cửa hàng",
+		"explore": "Khám phá sản phẩm",
+		"bestSeller": "Bán chạy nhất",
+		"newArrivals": "Hàng mới về"
+	},
+	"product": {
+		"title": "Tên sản phẩm",
+		"description": "Mô tả",
+		"price": "Giá",
+		"quantity": "Số lượng",
+		"addToCart": "Thêm vào giỏ",
+		"outOfStock": "Hết hàng",
+		"inStock": "Còn {{count}} sản phẩm",
+		"reviews": "Đánh giá khách hàng",
+		"writeReview": "Viết đánh giá"
+	},
+	"cart": {
+		"title": "Giỏ hàng",
+		"item": "Sản phẩm",
+		"items": "Sản phẩm",
+		"total": "Tổng cộng",
+		"checkout": "Tiến hành thanh toán",
+		"empty": "Giỏ hàng của bạn đang trống",
+		"remove": "Xóa"
+	},
+	"checkout": {
+		"shippingAddress": "Địa chỉ giao hàng",
+		"paymentMethod": "Phương thức thanh toán",
+		"placeOrder": "Đặt hàng",
+		"orderSummary": "Tóm tắt đơn hàng",
+		"items": "Sản phẩm",
+		"shipping": "Vận chuyển",
+		"tax": "Thuế",
+		"total": "Tổng cộng"
+	},
+	"account": {
+		"myAccount": "Tài khoản của tôi",
+		"updateProfile": "Cập nhật thông tin",
+		"changePassword": "Đổi mật khẩu",
+		"orderHistory": "Lịch sử đơn hàng"
+	},
+	"order": {
+		"orderNumber": "Đơn hàng #{{id}}",
+		"date": "Ngày",
+		"status": "Trạng thái",
+		"paid": "Đã thanh toán",
+		"notPaid": "Chưa thanh toán",
+		"delivered": "Đã giao hàng",
+		"notDelivered": "Chưa giao hàng",
+		"viewDetails": "Xem chi tiết"
+	},
+	"errors": {
+		"required": "Trường này là bắt buộc",
+		"invalidEmail": "Email không hợp lệ",
+		"passwordMismatch": "Mật khẩu không khớp",
+		"minLength": "Yêu cầu ít nhất {{min}} ký tự",
+		"maxLength": "Tối đa {{max}} ký tự"
+	},
+	"notifications": {
+		"loginSuccess": "Đăng nhập thành công",
+		"registerSuccess": "Tạo tài khoản thành công",
+		"addToCartSuccess": "Thêm vào giỏ thành công",
+		"orderSuccess": "Đặt hàng thành công"
+	},
+	"footer": {
+		"aboutUs": "Về chúng tôi",
+		"contact": "Liên hệ",
+		"privacy": "Chính sách bảo mật",
+		"terms": "Điều khoản dịch vụ",
+		"followUs": "Theo dõi chúng tôi"
+	}
+}
