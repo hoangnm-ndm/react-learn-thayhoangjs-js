@@ -8,21 +8,21 @@ import LayoutAdmin from "../components/layouts/LayoutAdmin";
 import LayoutClient from "../components/layouts/LayoutClient";
 
 const router = createBrowserRouter([
-	// Client routes
+	// * Client routes
 	{
 		path: "/",
 		element: <LayoutClient />,
 		children: clientRoutes,
 	},
 
-	// Admin routes
+	// * Admin routes
 	{
 		path: "/admin",
 		element: <LayoutAdmin />,
 		children: adminRoutes,
 	},
 
-	// Empty routes
+	// * Empty routes
 	{ path: "/login", element: <LoginPage /> },
 	{ path: "/register", element: <RegisterPage /> },
 	{ path: "*", element: <NotFoundPage /> },
