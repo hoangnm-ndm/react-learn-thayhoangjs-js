@@ -17,7 +17,7 @@ import WishListProductPage from "../pages/client/WishListProductPage";
 import ProductDetailPage from "../pages/client/ProductDetailPage";
 
 const clientRoutes = [
-	// common
+	// * common
 	{ index: true, element: <HomePage /> },
 	{ path: "about", element: <AboutPage /> },
 	{ path: "contact", element: <ContactPage /> },
@@ -25,21 +25,21 @@ const clientRoutes = [
 	{ path: "terms", element: <TermsPage /> },
 	{ path: "privacy", element: <PrivacyPage /> },
 
-	// products
+	// * products & categories
 	{ path: "products", element: <ProductListPage /> },
 	{ path: "products/:id", element: <ProductDetailPage /> },
 	{ path: "categories", element: <CategoryPage /> },
 
-	// cart
+	// * cart & checkout
 	{ path: "cart", element: <CartPage /> },
 	{ path: "checkout", element: <CheckoutPage /> },
 	{ path: "checkout-success", element: <CheckoutSuccessPage /> },
 
-	// blog
+	// * blog
 	{ path: "blogs", element: <BlogListPage /> },
 	{ path: "blogs/:slug", element: <BlogDetailPage /> },
 
-	// user
+	// * user
 	{ path: "me/profile", element: <ProfilePage /> },
 	{ path: "me/orders", element: <OrderPage /> },
 	{ path: "me/wishlist", element: <WishListProductPage /> },
